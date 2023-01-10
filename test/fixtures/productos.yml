@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+metralleta:
+  titulo: Metralleta
+  descripcion: Metralleta de guerra con silenciador
+  precio: 2000
+
+escopeta:
+  titulo: Escopeta
+  descripcion: Escopeta de caza
+  precio: 1600

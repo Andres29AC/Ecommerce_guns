@@ -11,5 +11,6 @@ end
 # Modelo -- Todo relacionado con la Base de Datos
 #           consultas,validaciones,relaciones
 # Vista -- Devolver al usuario html,pdf,csv,json
-# Controlador -- Logica
+# Controlador -- Logica del proyecto
 # @productos -- es una variable de instancia
+# Tienda en proceso

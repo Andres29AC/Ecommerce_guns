@@ -12,7 +12,7 @@ class ProductosControllerTest < ActionDispatch::IntegrationTest
     assert_select '.descripcion', 'Escopeta de caza'
     assert_select '.precio', '1600$'
   end
-  test 'renderizado correcto para productos en formularios'do 
+  test 'renderizado correcto para nuevos productos en formularios'do 
     get new_producto_path
     assert_response :success
     assert_select 'form'
@@ -26,5 +26,44 @@ class ProductosControllerTest < ActionDispatch::IntegrationTest
     post productos_path, params: { producto: { titulo: '', descripcion: 'Arma lanza cohetes', precio: 4582 } }
     assert_response :unprocessable_entity
   end
- 
+  test 'renderizado correcto para editar productos en formularios'do 
+    get edit_producto_path(productos(:metralleta))
+    assert_response :success
+    assert_select 'form'
+  end
+  test 'permite actualizar un producto' do
+    patch producto_path(productos(:metralleta)), params:{
+      producto:{
+        precio: 2000
+      }
+    }
+    assert_redirected_to productos_path
+    assert_equal flash[:notice], "Producto actualizado correctamente"
+  end
+  test 'no fue posible actualizar un producto' do
+    patch producto_path(productos(:metralleta)), params:{
+      producto:{
+        precio: nil
+      }
+    }
+    assert_response :unprocessable_entity
+  end
+  # Aqui aplicaremos TDD, para ello, primero crearemos el test, y luego lo implementaremos en el controlador.
+  test 'permite eliminar un producto' do
+    assert_difference('Producto.count', -1) do
+      delete producto_path(productos(:metralleta))
+    end
+    assert_redirected_to productos_path
+    assert_equal flash[:notice], "Producto eliminado correctamente"
+  end
 end
+
+# nil se utiliza para indicar que no hay valor, en este caso, no hay precio.
+
+
+
+
+
+
+
+

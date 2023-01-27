@@ -1,0 +1,90 @@
+<%= form_with model: @producto do |form|%>
+   <%# mostrando errores a los usuarioss en caso no se guarde un producto %>
+   <% @producto.errors.full_messages.each do |error| %>
+      <div>
+         <%= error %> 
+      </div> 
+   <% end %>
+   <div class="form-group">
+      <%=form.label :titulo,class: 'control-label' %>
+      <%=form.text_field :titulo,class: 'form-control editar-titulo' %>
+   </div>
+   <br> 
+   <div class="form-group">
+      <%=form.label :descripcion,class: 'control-label' %>
+      <%=form.text_area :descripcion,class: 'form-control editar-area' %>
+   </div>
+   <br> 
+   <div class="form-group">
+      <%=form.label :precio,class: 'control-label' %>
+      <%=form.number_field :precio,class: 'form-control editar-precio' %>
+   </div>
+   <br> 
+   <%# <%=form.submit :id => 'saveButton'%>
+   <div class="form-group modificar-botton">
+      <%=form.submit%>
+   </div>
+<% end %>
+
+<script>
+  document.querySelector("form").addEventListener("submit", function(event){
+    event.preventDefault();
+    Swal.fire({
+      title: '¿Desea guardar el producto?',
+      text: "¡Asegúrese de llenar todos los campos!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, guardar',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.value) {
+        this.submit()
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Producto guardado con éxito',
+          showConfirmButton: false,
+          timer: 1500
+        });
+      }
+    })
+  });
+</script>
+<style>
+   .form-group{
+      align-content: center;
+   }
+   .control-label{
+      display: flex;
+      justify-content: center;
+
+   }
+   .form-control{
+      display: flex;
+      justify-content: center;
+      margin: 0 auto;
+      width: 50%;
+   }
+   .form-group.modificar-botton{
+      display: flex;
+      justify-content: center;
+   }
+   .form-group sumbit:hover{
+      background-color: #407198;
+      color: white;
+   }
+   .editar-precio{
+      width: 20%;
+   }
+   .editar-titulo{
+      width: 30%;
+   }
+   .editar-area{
+      height: 100px;
+      width: 30%;
+   }
+</style>
+
+

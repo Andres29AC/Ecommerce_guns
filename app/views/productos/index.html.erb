@@ -1,13 +1,8 @@
 <h1>Lista de Productos:</h1>
-
-<%= 1 + 1 %>
-<br>
-<%= Date.today %>
 <br>
 <h2>Numero de productos en la Base de Datos:</h2>
 <%= @productos.count %>
 <br>
-<h2>Recorriendo el array:</h2>
 <% @productos.each do |producto| %>
    <%= link_to producto_path(producto.id), class: 'producto' do %>
    <h3><%= producto.titulo %></h3>

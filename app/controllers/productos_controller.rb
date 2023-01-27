@@ -20,6 +20,24 @@ class ProductosController < ApplicationController
       # y se le pasa el status 422
     end 
   end
+  def edit
+    @producto = Producto.find(params[:id])
+    #find se encarga de buscar el producto por id para poder editarlo
+
+  end
+  def update
+    @producto = Producto.find(params[:id])
+    if @producto.update(producto_params)
+      redirect_to productos_path, notice: 'Producto actualizado correctamente'
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+  def destroy
+    @producto = Producto.find(params[:id])
+    @producto.destroy
+    redirect_to productos_path, notice: 'Producto eliminado correctamente',status: :see_other
+  end
   private
   def producto_params
     params.require(:producto).permit(:titulo,:descripcion,:precio)

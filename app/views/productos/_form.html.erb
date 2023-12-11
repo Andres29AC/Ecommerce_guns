@@ -19,7 +19,12 @@
       <%=form.label :precio,class: 'control-label' %>
       <%=form.number_field :precio,class: 'form-control editar-precio' %>
    </div>
-   <br> 
+   <br>
+   <div class="form-group">
+      <%=form.label :photo%>
+      <%=form.file_field :photo%>
+   </div>
+   <br>
    <%# <%=form.submit :id => 'saveButton'%>
    <div class="form-group modificar-botton">
       <%=form.submit%>

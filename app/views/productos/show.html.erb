@@ -1,9 +1,38 @@
+<div class="image">
+   <%= image_tag @producto.photo, width:500 if @producto.photo.attached? %>
+</div>
 <h1 class='titulo'><%= @producto.titulo %></h1>
-<p class='descripcion'><%= @producto.descripcion %></p>
-<span class='precio'><%= @producto.precio %>$</span>
+<div class="info">
+   <p><%= @producto.descripcion %></p>
+   <span><%= @producto.precio %>$</span>
+</div>
+<br>
+<div class="actions">
+<button type="button" class="btn btn-link">
 <%= link_to 'Editar Producto', edit_producto_path(@producto) %>
+</button>
+<button type="button" class="btn btn-link">
 <%# <%= link_to 'Eliminar Producto', producto_path(@producto), method: :delete, data: { confirm: '¿Estás seguro?' } %1> %>
 <%= link_to 'Eliminar Producto', producto_path(@producto), data:{
    turbo_method: "delete",
    turbo_confirm: "¿Estás seguro?"
 } %>
+</button>
+</div>
+
+<style>
+.titulo{
+   text-align: center;
+}
+.info{
+   text-align: center; 
+   box-sizing: border-box;
+}
+.actions{
+   text-align: center;
+}
+.image{
+   margin: auto;
+   text-align: center;
+}
+</style>

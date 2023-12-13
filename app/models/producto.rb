@@ -3,4 +3,5 @@ class Producto < ApplicationRecord
   validates :titulo, presence: true
   validates :descripcion, presence: true
   validates :precio, presence: true
+  belongs_to :category  #TODO:pertenece a
 end

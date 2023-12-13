@@ -14,14 +14,13 @@
  *= require_self
  */
 
-  
- .producto-container {
+ /* application.css */
+  .producto-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-    
-  }
-  
+  } 
+
   .producto-item {
     margin: 2%;
     width: 330px;

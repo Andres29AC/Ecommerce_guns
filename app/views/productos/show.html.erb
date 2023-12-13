@@ -15,7 +15,7 @@
 <%# <%= link_to 'Eliminar Producto', producto_path(@producto), method: :delete, data: { confirm: '¿Estás seguro?' } %1> %>
 <%= link_to 'Eliminar Producto', producto_path(@producto), data:{
    turbo_method: "delete",
-   turbo_confirm: "¿Estás seguro?"
+   turbo_confirm: t('common.confirn')
 } %>
 </button>
 </div>

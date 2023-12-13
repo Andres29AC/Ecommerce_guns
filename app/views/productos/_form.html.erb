@@ -6,18 +6,23 @@
       </div> 
    <% end %>
    <div class="form-group">
-      <%=form.label :titulo,class: 'control-label' %>
+      <%=form.label :title,class: 'control-label' %>
       <%=form.text_field :titulo,class: 'form-control editar-titulo' %>
    </div>
    <br> 
    <div class="form-group">
-      <%=form.label :descripcion,class: 'control-label' %>
+      <%=form.label :description,class: 'control-label' %>
       <%=form.text_area :descripcion,class: 'form-control editar-area' %>
    </div>
    <br> 
    <div class="form-group">
-      <%=form.label :precio,class: 'control-label' %>
+      <%=form.label :price,class: 'control-label' %>
       <%=form.number_field :precio,class: 'form-control editar-precio' %>
+   </div>
+   <br>
+   <div>
+      <%= form.label :category_id %>
+      <%= form.collection_select :category_id, Category.all.order(name: :asc), :id,:name %>
    </div>
    <br>
    <div class="form-group">

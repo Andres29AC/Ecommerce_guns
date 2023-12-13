@@ -1,0 +1,10 @@
+<div class="producto-container">
+      <%= link_to producto_path(producto.id), class: 'producto','data-turbo-frame': '_top' do %>
+         <div class="producto-item">
+            <%= image_tag producto.photo,width:200 if producto.photo.attached? %>
+            <h3><%= producto.titulo %></h3>
+            <span>Precio: <%= producto.precio %>$</span>
+         </div>
+      <% end %>
+</div>
+

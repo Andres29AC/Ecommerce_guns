@@ -4,8 +4,16 @@ metralleta:
   titulo: Metralleta
   descripcion: Metralleta de guerra con silenciador
   precio: 2000
+  category: machineguns
 
 escopeta:
   titulo: Escopeta
   descripcion: Escopeta de caza
   precio: 1600
+  category: shotgun
+
+escopetaAK54:
+  titulo: escopetaAK54
+  descripcion: De segunda mano
+  precio: 700
+  category: shotgun

@@ -1,0 +1,10 @@
+
+machineguns:
+  name: Ametralladoras
+  description: Armas de guerra
+shotgun:
+  name: Escopetas
+  description: Armas de caza
+grenades:
+  name: Granadas
+  description: Granadas de guerra

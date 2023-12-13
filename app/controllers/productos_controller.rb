@@ -1,10 +1,31 @@
 class ProductosController < ApplicationController
   def index
     @categories = Category.order(name: :asc).load_async.load
-    @productos=Producto.with_attached_photo.order(created_at: :desc).load_async.load
+    @productos=Producto.with_attached_photo
     if params[:category_id]
       @productos = @productos.where(category_id: params[:category_id])
     end
+    if params[:min_price].present?
+      @productos = @productos.where("precio >= ?",params[:min_price])
+    end
+    if params[:max_price].present?
+      @productos = @productos.where("precio <= ?",params[:max_price])
+    end
+    if params[:query_text].present?
+      @productos = @productos.search_full_text(params[:query_text])
+    end
+    # if params[:order_by].present?
+    #   order_by = {
+    #     newest: "created_at DESC",
+    #     expensive: "precio DESC",
+    #     cheaper: "precio ASC"
+    #   }.fetch(params[:order_by].to_sym, "created_at DESC")
+      
+    #   @productos = @productos.order(order_by)
+    # end
+    order_by = Producto::ORDER_BY.fetch(params[:order_by]&.to_sym, Producto::ORDER_BY[:newest])
+      
+    @productos = @productos.order(order_by).load_async.load
   end
   def show
     @producto=Producto.find(params[:id])
@@ -64,3 +85,4 @@ end
 #TODO: ->para habilitar la consola utiliza rails console
 #TODO: ->para ActiveRecord::Base.connection.table_exists?(:products) para verificar si existe una tabla
 #TODO: ->para rellenar desde terminal usando las fixtures rails db:fixtures:load
+#TODO: ->bundle add pg_search

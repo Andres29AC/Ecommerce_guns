@@ -11,6 +11,22 @@ class ProductosControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert_select '.producto',1
   end
+  test 'renderizado correcto de todos los productos filtrados por min_price y max_price' do
+    get productos_path(min_price: 200, max_price: 700)
+    assert_response :success
+    assert_select '.producto',1
+  end
+  test 'buscar los productos con query_text' do
+    get productos_path(query_text: 'Escopeta')
+    assert_response :success
+    assert_select '.producto h3', 'Escopeta'
+  end
+  test 'sort products by expensive prices first' do
+    get productos_path(order_by: 'expensive')
+    assert_response :success
+    assert_select '.producto',3
+    assert_select '.producto:first-child h3','Metralleta'
+  end
   test 'renderizado correcto de la pagina del producto' do
     get producto_path(productos(:escopeta))
     assert_response :success

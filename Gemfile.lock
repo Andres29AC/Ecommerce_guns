@@ -68,6 +68,7 @@ GEM
       tzinfo (~> 2.0)
     addressable (2.8.1)
       public_suffix (>= 2.0.2, < 6.0)
+    bcrypt (3.1.20)
     bindex (0.8.1)
     bootsnap (1.15.0)
       msgpack (~> 1.2)
@@ -127,6 +128,7 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.13.10-x64-mingw32)
       racc (~> 1.4)
+    pagy (6.5.0)
     pg (1.4.5-x64-mingw32)
     pg_search (2.3.6)
       activerecord (>= 5.2)
@@ -214,11 +216,13 @@ PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
+  bcrypt (~> 3.1.7)
   bootsnap
   capybara
   debug
   importmap-rails
   jbuilder
+  pagy (~> 6.5)
   pg (~> 1.1)
   pg_search (~> 2.3)
   puma (~> 5.0)

@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   #get '/productos/:id', to: 'productos#show', as: :producto
   #get '/productos/:id/edit', to: 'productos#edit', as: :edit_producto
   resources :productos, path: '/'
+  namespace :authentication, path: '', as: '' do
+    resources :users, only: [:new, :create]
+  end
 end
 #Cada vez que se haga una peticion se mandara
 #a to: 'productos#index'

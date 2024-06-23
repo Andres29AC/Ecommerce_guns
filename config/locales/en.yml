@@ -1,4 +1,6 @@
 en:
+  app_name: 'Realness Brothers Guns'
+  meta_title: 'Come and buy your favorite weapons!'
   activerecord:
     models:
       producto: Product
@@ -24,14 +26,18 @@ en:
   shared:
     header:
       add: 'Add product'
+  authetication:
+    users:
+      create:
+        created: 'Yout account has been created!'
   productos:
     edit:
       title: 'Edit product'
     new:
       title: 'Add product'
     index:
-      title: 'Products:'
       all: 'All'
+      title: 'Products:'
       min_price: 'Min price'
       max_price: 'Max price'
       query_text: 'What do you want to search?'
@@ -64,4 +70,3 @@ en:
       deleted: 'Your category has been successfully destroyed'
     new:
       title: 'New Category'
-    

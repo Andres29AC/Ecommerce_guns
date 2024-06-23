@@ -1,35 +1,11 @@
 class ProductosController < ApplicationController
   def index
     @categories = Category.order(name: :asc).load_async.load
-    @productos=Producto.with_attached_photo
-    if params[:category_id]
-      @productos = @productos.where(category_id: params[:category_id])
-    end
-    if params[:min_price].present?
-      @productos = @productos.where("precio >= ?",params[:min_price])
-    end
-    if params[:max_price].present?
-      @productos = @productos.where("precio <= ?",params[:max_price])
-    end
-    if params[:query_text].present?
-      @productos = @productos.search_full_text(params[:query_text])
-    end
-    # if params[:order_by].present?
-    #   order_by = {
-    #     newest: "created_at DESC",
-    #     expensive: "precio DESC",
-    #     cheaper: "precio ASC"
-    #   }.fetch(params[:order_by].to_sym, "created_at DESC")
-      
-    #   @productos = @productos.order(order_by)
-    # end
-    order_by = Producto::ORDER_BY.fetch(params[:order_by]&.to_sym, Producto::ORDER_BY[:newest])
-      
-    @productos = @productos.order(order_by).load_async.load
+
+    @pagy, @productos = pagy_countless(FindProducts.new.call(producto_params_index).load_async, items: 5)
   end
   def show
     @producto=Producto.find(params[:id])
-
   end
   def new
     @producto=Producto.new
@@ -66,6 +42,12 @@ class ProductosController < ApplicationController
   private
   def producto_params
     params.require(:producto).permit(:titulo,:descripcion,:precio,:photo,:category_id)
+  end
+  def producto_params_index
+    params.permit(:category_id,:min_price,:max_price,:query_text,:order_by)
+  end
+  def producto
+    @producto = Producto.find(params[:id])
   end
 end
 

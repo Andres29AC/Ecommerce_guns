@@ -9,14 +9,13 @@
 <br>
 <div class="actions">
 <button type="button" class="btn btn-link">
-<%= link_to 'Editar Producto', edit_producto_path(@producto) %>
+<%= link_to 'Editar Producto', edit_producto_path(@producto) if @producto.user == Current.user %>
 </button>
 <button type="button" class="btn btn-link">
-<%# <%= link_to 'Eliminar Producto', producto_path(@producto), method: :delete, data: { confirm: '¿Estás seguro?' } %1> %>
 <%= link_to 'Eliminar Producto', producto_path(@producto), data:{
    turbo_method: "delete",
    turbo_confirm: t('common.confirn')
-} %>
+} if @producto.user == Current.user%>
 </button>
 </div>
 

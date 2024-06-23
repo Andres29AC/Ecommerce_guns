@@ -1,10 +1,28 @@
+videogames:
+  name: Videojuegos
+  description: Granadas de guerra
 
-machineguns:
-  name: Ametralladoras
-  description: Armas de guerra
-shotgun:
-  name: Escopetas
-  description: Armas de caza
-grenades:
-  name: Granadas
+computers:
+  name: Informatica
+  description: Granadas de guerra
+clothes:
+  name: Ropa
+  description: Granadas de guerra
+cars:
+  name: Coches
+  description: Granadas de guerra
+music:
+  name: Musica
+  description: Granadas de guerra
+electronic:
+  name: Electronica
+  description: Granadas de guerra
+books:
+  name: Libros
+  description: Granadas de guerra
+mobile:
+  name: Moviles
+  description: Granadas de guerra
+sports:
+  name: Deportes
   description: Granadas de guerra

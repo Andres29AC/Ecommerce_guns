@@ -1,8 +1,9 @@
 class ProductosController < ApplicationController
+  skip_before_action :protect_pages, only: [:index, :show]
   def index
     @categories = Category.order(name: :asc).load_async.load
 
-    @pagy, @productos = pagy_countless(FindProducts.new.call(producto_params_index).load_async, items: 5)
+    @pagy, @productos = pagy_countless(FindProducts.new.call(producto_params_index).load_async, items: 4)
   end
   def show
     @producto=Producto.find(params[:id])
@@ -11,7 +12,8 @@ class ProductosController < ApplicationController
     @producto=Producto.new
   end
   def create
-    @producto=Producto.new(producto_params)
+    @producto = Producto.new(producto_params)
+    # @producto=Current.user.productos.new(producto_params)
     # pp @producto
     if @producto.save
       redirect_to productos_path, notice: t('.created')  
@@ -44,7 +46,7 @@ class ProductosController < ApplicationController
     params.require(:producto).permit(:titulo,:descripcion,:precio,:photo,:category_id)
   end
   def producto_params_index
-    params.permit(:category_id,:min_price,:max_price,:query_text,:order_by)
+    params.permit(:category_id,:min_price,:max_price,:query_text,:order_by,:page)
   end
   def producto
     @producto = Producto.find(params[:id])

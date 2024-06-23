@@ -1,19 +1,183 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-metralleta:
-  titulo: Metralleta
-  descripcion: Metralleta de guerra con silenciador
-  precio: 2000
-  category: machineguns
+ps4:
+  titulo: PS4 Fat
+  descripcion: PS4 en buen estado
+  precio: 150
+  category: videogames
+  user: lion
 
-escopeta:
-  titulo: Escopeta
-  descripcion: Escopeta de caza
-  precio: 1600
-  category: shotgun
+switch:
+  titulo: Nintendo Switch
+  descripcion: Le falla el lector de tarjeta SD
+  precio: 195
+  category: videogames
+  user: pepe
 
-escopetaAK54:
-  titulo: escopetaAK54
-  descripcion: De segunda mano
-  precio: 700
-  category: shotgun
+nintendo64:
+  titulo: Nintendo 64 en buen estado
+  descripcion: Con su caja, solo tiene algun pequeño arañazo
+  precio: 190
+  category: videogames
+  user: maria
+
+megadrive:
+  titulo: Sega Megadrive
+  descripcion: Funciona perfectamente, solo consola
+  precio: 90
+  category: videogames
+  user: maria
+
+driver2:
+  titulo: Driver 2 para ps1
+  descripcion: Como nuevo en su caja y con instrucciones
+  precio: 25
+  category: videogames
+  user: lion
+
+ps5:
+  titulo: PS5 nueva sin lector
+  descripcion: A estrenar, usada solo dos veces.
+  precio: 650
+  category: videogames
+  user: lion
+
+gameboy:
+  titulo: Game Boy Color
+  descripcion: Con su caja. Color morada transparente.
+  precio: 150
+  category: videogames
+  user: pepe
+
+air:
+  titulo: Macbook Air
+  descripcion: Le falla la bateria
+  precio: 250
+  category: computers
+  user: lion
+
+imac:
+  titulo: iMac 27" 2015
+  descripcion: i5 con 8gb de ram y SSD
+  precio: 90
+  category: computers
+  user: maria
+
+ryzen:
+  titulo: Ryzen 5950x
+  descripcion: Sin estrenar precintado como nuevo
+  precio: 590
+  category: computers
+  user: pepe
+
+nvidia:
+  titulo: Nvidia 3090ti
+  descripcion: Solo usada 3 meses la vendo porque no la uso
+  precio: 1500
+  category: computers
+  user: maria
+
+ram:
+  titulo: 16GB Ram DDR4 3200mhz
+  descripcion: Funciona perfectamente
+  precio: 95
+  category: computers
+  user: pepe
+
+renault:
+  titulo: Renault Clio 2009
+  descripcion: 85000km, 95cv
+  precio: 4500
+  category: cars
+  user: lion
+
+seat:
+  titulo: Seat Panda clasico
+  descripcion: Tan solo 90000km, 75cv. Del año 1980
+  precio: 5500
+  category: cars
+  user: pepe
+
+michael:
+  titulo: Vinilo Michael Jackson Thriller
+  descripcion: Como nuevo a estrenar
+  precio: 45
+  category: music
+  user: lion
+
+queen:
+  titulo: Vinilo Queen
+  descripcion: Ligeras marcas de uso de los años 80
+  precio: 35
+  category: music
+  user: maria
+
+tv:
+  titulo: Television LG 48 pulgadas
+  descripcion: Viene con smart TV funciona perfectamente
+  precio: 350
+  category: electronic
+  user: pepe
+
+kindle:
+  titulo: Lector de libros Kindle 2010
+  descripcion: Tiene marcas de uso pero funciona bien
+  precio: 35
+  category: electronic
+  user: lion
+
+ipod:
+  titulo: iPod touch
+  descripcion: Como nuevo a estrenar con su caja
+  precio: 175
+  category: electronic
+  user: pepe
+
+harry:
+  titulo: Coleccion entera de Harry Potter
+  descripcion: Todos los libros de la saga. Bien cuidados!
+  precio: 65
+  category: books
+  user: maria
+
+hobbit:
+  titulo: El hobbit
+  descripcion: Libro en buen estado
+  precio: 15
+  category: books
+  user: maria
+
+iphone:
+  titulo: iPhone 13
+  descripcion: Funciona correctamente.
+  precio: 400
+  category: mobile
+  user: pepe
+
+pixel:
+  titulo: Google Pixel 4
+  descripcion: Le falla la bateria
+  precio: 100
+  category: mobile
+  user: lion
+
+surf:
+  titulo: Tabla de surf
+  descripcion: Usada dos veces. Como nueva.
+  precio: 125
+  category: sports
+  user: maria
+
+tennis:
+  titulo: Raqueta de tenis profesional
+  descripcion: Fabricada en fibra de carbono. Solo un par de arañazos
+  precio: 135
+  category: sports
+  user: pepe
+
+skate:
+  titulo: Skateboard
+  descripcion: Como nuevo con las ruedas recien cambiadas
+  precio: 75
+  category: sports
+  user: lion

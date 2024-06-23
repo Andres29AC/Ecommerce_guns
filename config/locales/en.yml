@@ -4,12 +4,21 @@ en:
   activerecord:
     models:
       producto: Product
+      user: User
+      category: Category
     attributes:
       producto:
         title: 'Title'
         description: 'Description'
         price: 'Price'
         photo: 'Photo'
+      user:
+        email: 'Email'
+        username: 'Username'
+        password: 'Password'
+      category:
+        name: 'Name'
+        description: 'Description'
     errors:
       models:
         producto:
@@ -23,13 +32,23 @@ en:
   common:
     confirm: 'Are you sure?'
     back: 'Go back'
+    not_logged_in: 'You have to login or create an account'
   shared:
     header:
       add: 'Add product'
-  authetication:
+      login: 'Login'
+      register: 'Register'
+      logout: 'Logout'
+  authentication:
     users:
       create:
         created: 'Yout account has been created!'
+    sessions:
+      create:
+        created: 'Welcome!'
+        failed: 'Invalid login!'
+      destroy:
+        destroyed: 'Session ended. Bye!'
   productos:
     edit:
       title: 'Edit product'

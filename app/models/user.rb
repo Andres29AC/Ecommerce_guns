@@ -6,10 +6,11 @@ class User < ApplicationRecord
                     }
   validates :username, presence: true, uniqueness: true,
             length: { in: 3..15 },
-            format: { with: /\A[a-z-0-9-A-Z_]+\z/,
+            format: { with: /\A[a-z0-9A-Z_]+\z/,
                       message: 'solo se permiten letras, números y guiones bajos'
                     }
   validates :password, length: { minimum: 6 }
+  has_many :productos, dependent: :destroy
   before_save :downcase_attributes
   private
   def downcase_attributes

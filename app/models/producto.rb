@@ -13,5 +13,6 @@ class Producto < ApplicationRecord
   validates :titulo, presence: true
   validates :descripcion, presence: true
   validates :precio, presence: true
-  belongs_to :category  #TODO:pertenece a
+  belongs_to :category
+  belongs_to :user, default: -> { Current.user }
 end

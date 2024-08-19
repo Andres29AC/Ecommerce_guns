@@ -25,7 +25,6 @@ class ProductosController < ApplicationController
   end
   def edit
     authorize! producto
-    producto
     #@producto = Producto.find(params[:id])
     #find se encarga de buscar el producto por id para poder editarlo
   end

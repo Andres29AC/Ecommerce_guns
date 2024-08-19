@@ -33,6 +33,7 @@ es:
     confirm: '¿Estás seguro?'
     back: 'volver'
     not_logged_in: 'Inicia sesion o create una cuenta!!'
+    not_authorized: 'No tienes permisos para esta accion'
     login: 'Acceso'
     register: 'Registro'
     logout: 'Salir'

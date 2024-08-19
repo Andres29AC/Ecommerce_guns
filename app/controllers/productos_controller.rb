@@ -24,11 +24,13 @@ class ProductosController < ApplicationController
     end 
   end
   def edit
-    @producto = Producto.find(params[:id])
+    authorize! producto
+    producto
+    #@producto = Producto.find(params[:id])
     #find se encarga de buscar el producto por id para poder editarlo
-
   end
   def update
+    authorize! producto
     @producto = Producto.find(params[:id])
     if @producto.update(producto_params)
       redirect_to productos_path, notice: t('.updated')
@@ -37,6 +39,7 @@ class ProductosController < ApplicationController
     end
   end
   def destroy
+    authorize! producto
     @producto = Producto.find(params[:id])
     @producto.destroy
     redirect_to productos_path, notice: t('.deleted') ,status: :see_other

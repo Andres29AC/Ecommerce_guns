@@ -4,6 +4,7 @@ lion:
   email: lionAS_45@hotmail.com
   username: lioncoder
   password_digest: <%= BCrypt::Password.create('black87FR', cost: 5) %>
+  admin: true
 
 maria:
   email: maria@vendelo.com

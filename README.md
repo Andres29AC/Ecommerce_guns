@@ -1,4 +1,4 @@
-# Proyecto Tienda 
+# Ecommerce de venta de Armas 
 
 Este proyecto tiene como objetivo practicar lo aprendido utilizando Ruby on Rails.
 
@@ -7,6 +7,3 @@ Este proyecto tiene como objetivo practicar lo aprendido utilizando Ruby on Rail
     
     $ rails server
 
-## Para probar los test disponibles hasta ahora el comando a utilizar es:
-
-    $ rails test

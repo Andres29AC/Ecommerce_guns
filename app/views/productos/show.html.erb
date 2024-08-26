@@ -17,6 +17,14 @@
    turbo_confirm: t('common.confirn')
 } if @producto.owner?%>
 </button>
+<button type="button" class="btn btn-link">
+   <%= link_to t('.view_more_products',username: @producto.user.username), user_path(@producto.user.username) %>
+</button>
+<button type="button" class="btn btn-link">
+<%= link_to ' 🌟 ', favorites_path(producto_id: @producto.id), data:{
+   turbo_method: "post",
+}%>
+</button>
 </div>
 
 <style>

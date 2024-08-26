@@ -13,9 +13,10 @@ class Producto < ApplicationRecord
   validates :titulo, presence: true
   validates :descripcion, presence: true
   validates :precio, presence: true
+  has_many :favorites, dependent: :destroy
   belongs_to :category
   belongs_to :user, default: -> { Current.user }
   def owner?
-    user_id == Current.user.id
+    user_id == Current.user&.id
   end
 end

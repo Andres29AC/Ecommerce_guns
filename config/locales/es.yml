@@ -34,12 +34,13 @@ es:
     back: 'volver'
     not_logged_in: 'Inicia sesion o create una cuenta!!'
     not_authorized: 'No tienes permisos para esta accion'
-    login: 'Acceso'
-    register: 'Registro'
-    logout: 'Salir'
+    not_found: 'No se ha encontrado'
   shared:
     header:
       add: 'Añadir producto'
+      login: 'Acceso'
+      register: 'Registro'
+      logout: 'Salir'
   authentication:
     users:
       create:
@@ -67,6 +68,7 @@ es:
     show:
       edit: 'Editar producto'
       delete: 'Borrar producto'
+      view_more_products: 'Ver mas productos de %{username}'
     create:
       created: 'Tu producto se ha creado correctamente'
     update:

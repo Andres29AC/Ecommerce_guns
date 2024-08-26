@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
     include Authorization
     include Language
     include Pagy::Backend
+    include Error
 end
 
 #rails g migration addAdminToUser admin:boolean

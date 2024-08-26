@@ -9,6 +9,7 @@ class FindProducts
     scoped = filter_by_price(scoped, params[:min_price])
     scoped = filter_by_price(scoped, params[:max_price])
     scoped = filter_by_query_text(scoped, params[:query_text])
+    scoped = filter_by_user_id(scoped, params[:user_id])
     sort(scoped, params[:order_by])
   end
   private
@@ -30,6 +31,10 @@ class FindProducts
   def filter_by_query_text(scoped, query_text)
     return scoped unless query_text.present?
     scoped.search_full_text(query_text)
+  end
+  def filter_by_user_id(scoped, user_id)
+    return scoped unless user_id.present?
+    scoped.where(user_id: user_id)
   end
   def sort(scoped, order_by)
     order_by_query = Producto::ORDER_BY.fetch(order_by&.to_sym, Producto::ORDER_BY[:scoped])

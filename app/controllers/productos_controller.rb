@@ -48,7 +48,7 @@ class ProductosController < ApplicationController
     params.require(:producto).permit(:titulo,:descripcion,:precio,:photo,:category_id)
   end
   def producto_params_index
-    params.permit(:category_id,:min_price,:max_price,:query_text,:order_by,:page)
+    params.permit(:category_id,:min_price,:max_price,:query_text,:order_by,:page,:favorites)
   end
   def producto
     @producto = Producto.find(params[:id])

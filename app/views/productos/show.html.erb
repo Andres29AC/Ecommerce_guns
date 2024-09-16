@@ -20,11 +20,21 @@
 <button type="button" class="btn btn-link">
    <%= link_to t('.view_more_products',username: @producto.user.username), user_path(@producto.user.username) %>
 </button>
+<% if @producto.favorite %>
 <button type="button" class="btn btn-link">
-<%= link_to ' 🌟 ', favorites_path(producto_id: @producto.id), data:{
-   turbo_method: "post",
-}%>
+   <%= link_to ' 💔 ', favorite_path(@producto.id), data:{
+      turbo_method: "delete",
+   }
+   %>
 </button>
+<% else %>
+<button type="button" class="btn btn-link">
+   <%= link_to ' 🌟 ', favorites_path(producto_id: @producto.id), data:{
+      turbo_method: "post",
+   }
+   %>
+</button>
+<% end %>
 </div>
 
 <style>

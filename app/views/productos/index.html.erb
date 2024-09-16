@@ -29,10 +29,11 @@
   <div>
     <%= render partial: 'category', collection: @categories %>
   </div>
-
-  <!-- Paginacion infinita -->
-  <%= turbo_frame_tag "productos-#{@pagy.page}", class: "producto-container" do %>
-    <%= render partial: 'producto', collection: @productos %>
-    <%= turbo_frame_tag "productos-#{@pagy.next}", class: "producto-container", src: pagy_url_for(@pagy, @pagy.next), loading: 'lazy' if @pagy.next %>
+  <%= turbo_frame_tag :productos do  %>
+    <!-- Paginacion infinita -->
+    <%= turbo_frame_tag "productos-#{@pagy.page}", class: "producto-container" do %>
+      <%= render partial: 'producto', collection: @productos %>
+      <%= turbo_frame_tag "productos-#{@pagy.next}", class: "producto-container", src: pagy_url_for(@pagy, @pagy.next), loading: 'lazy' if @pagy.next %>
+    <% end %>
   <% end %>
 <% end %>

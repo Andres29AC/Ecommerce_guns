@@ -1,5 +1,6 @@
 class Producto < ApplicationRecord
   include PgSearch::Model
+  include Favoritable
   pg_search_scope :search_full_text, against: {
     titulo: 'A',
     descripcion: 'B'
@@ -13,7 +14,6 @@ class Producto < ApplicationRecord
   validates :titulo, presence: true
   validates :descripcion, presence: true
   validates :precio, presence: true
-  has_many :favorites, dependent: :destroy
   belongs_to :category
   belongs_to :user, default: -> { Current.user }
   def owner?

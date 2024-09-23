@@ -1,0 +1,17 @@
+<div id="favorite">
+    <% if producto.favorite %>
+        <button type="button" class="btn btn-link">
+            <%= link_to ' 💔 ', favorite_path(producto.id), data:{
+                turbo_method: "delete",
+            }
+            %>
+        </button>
+    <% else %>
+        <button type="button" class="btn btn-link">
+            <%= link_to ' 🌟 ', favorites_path(producto_id: producto.id), data:{
+                turbo_method: "post",
+            }
+            %>
+        </button>
+    <% end %>
+</div>

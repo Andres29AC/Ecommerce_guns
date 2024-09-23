@@ -3,14 +3,30 @@ class FavoritesController < ApplicationController
   end
   def create
     producto.favorite!
+    respond_to do |format|
+      format.html do
+        redirect_to productos_path(producto)
+      end
+      format.turbo_stream do
+        render turbo_stream: turbo_stream.replace("favorite", partial: "productos/favorite", locals: { producto: producto })
+      end
+    end
     #producto.favorites.create(user: Current.user)
     #Favorite.create(producto: producto, user: Current.user)
-    redirect_to productos_path(producto)
+    #redirect_to productos_path(producto)
   end
   def destroy
     producto.unfavorite!
+    respond_to do |format|
+      format.html do
+        redirect_to productos_path(producto),status: :see_other
+      end
+      format.turbo_stream do
+        render turbo_stream: turbo_stream.replace("favorite", partial: "productos/favorite", locals: { producto: producto })
+      end
+    end
     #producto.favorites.find_by(user: Current.user).destroy
-    redirect_to productos_path(producto),status: :see_other
+    #redirect_to productos_path(producto)
   end
   private
   def producto

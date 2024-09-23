@@ -1,5 +1,9 @@
 <%= @user.username %>
-<%= turbo_frame_tag "productos-#{@pagy.page}", class: "producto-container" do %>
-  <%= render partial: 'productos/producto', collection: @productos %>
-  <%= turbo_frame_tag "productos-#{@pagy.next}", class: "producto-container", src: pagy_url_for(@pagy, @pagy.next), loading: 'lazy' if @pagy.next %>
-<% end %>
+
+<%#= turbo_frame_tag "productos-#{@pagy.page}", class: "producto-container" do %>
+  <%#= render partial: 'productos/producto', collection: @productos %>
+  <%#= turbo_frame_tag "productos-#{@pagy.next}", class: "producto-container", src: pagy_url_for(@pagy, @pagy.next), loading: 'lazy' if @pagy.next %>
+<%# end %>
+
+
+<%= turbo_frame_tag :productos, src:productos_path(user_id: @user.id)  %>

@@ -1,9 +1,9 @@
-
-<%= link_to producto_path(producto.id), class: 'producto','data-turbo-frame': '_top' do %>
-   <div class="producto-item">
-      <%= image_tag producto.photo,width:200 if producto.photo.attached? %>
-      <h3><%= producto.titulo %></h3>
-      <span>Precio: <%= producto.precio %>$</span>
+<%= link_to producto_path(producto.id), class: 'producto bg-white mb-2 rounded sm:w-[calc(33.33333%_-_.5rem)] lg:w-[calc(25%_-_.5rem)]','data-turbo-frame': '_top' do %>
+   <%= image_tag producto.photo.attached? ? producto.photo : 'placeholder.png' ,class: "w-full h-60 object-cover"%>
+   <div class="m-2">
+      <span class="font-bold text-xl"> <%= producto.precio %>$</span>
+      <h2 class=""><%= producto.titulo %></h2>
+      <p class="text-gray-500 text-sm mt-2"><%= producto.descripcion %></p>
    </div>
 <% end %>
 

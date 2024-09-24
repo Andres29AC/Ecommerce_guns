@@ -1,39 +1,26 @@
 <%= turbo_frame_tag 'home' do %>
-  <div class="title">
-    <h1 style="text-align: center;"><%= t('.title') %></h1>
-  </div>
-  <br>
-  <div class="count">
-    <h2>Numero de productos:</h2>
-    <div class="counter-products">
-      <span><%= @productos.count %></span>
-    </div>
-  </div>
-  <br>
-  <div style="text-align: center; margin: auto;">
-    <%= form_with url: productos_path, method: :get do |form| %>
-      <%= form.text_field :query_text, placeholder: t('.query_text'),
-                          onChange: 'this.form.requestSubmit()', value: params[:query_text] %>
+  <%= form_with url: productos_path, method: :get do |form| %>
+    <%= form.text_field :query_text, placeholder: t('.query_text'),
+     onChange: 'this.form.requestSubmit()', value: params[:query_text], class: "w-full my-2 rounded-2xl border-gray-200" %>
+    <div class="flex">
       <%= form.number_field :min_price, placeholder: t('.min_price'),
-                            onChange: 'this.form.requestSubmit()', value: params[:min_price] %>
+       onChange: 'this.form.requestSubmit()', value: params[:min_price],class: "w-1/3 rounded-2xl border-gray-200" %>
       <%= form.number_field :max_price, placeholder: t('.max_price'),
-                            onChange: 'this.form.requestSubmit()', value: params[:max_price] %>
+       onChange: 'this.form.requestSubmit()', value: params[:max_price],class: "w-1/3 rounded-2xl border-gray-200 mx-2" %>
       <%= form.select :order_by, options_for_select(Producto::ORDER_BY.keys.map { |order| [t(".#{order}"), order] }, params[:order_by]), {},
-                      { onChange: 'this.form.requestSubmit()' } %>
-    <% end %>
-  </div>
-  <div>
-    <%= link_to t('.all'), productos_path %>
-  </div>
+       { onChange: 'this.form.requestSubmit()',class: "w-1/3 rounded-2xl border-gray-200 text-gray-500" } %>
+    </div>
+  <% end %>
 
-  <div>
+  <div class="flex gap-2 overflow-x-auto my-2">
+    <%= link_to t('.all'), productos_path,class: "bg-white text-gray-600 px-4 py-2 rounded-2xl drop-shadow-sm hover:bg-gray-300"%>
     <%= render partial: 'category', collection: @categories %>
   </div>
-  <%= turbo_frame_tag :productos do  %>
+  <%= turbo_frame_tag :productos, class:"flex flex-col m-2" do  %>
     <!-- Paginacion infinita -->
-    <%= turbo_frame_tag "productos-#{@pagy.page}", class: "producto-container" do %>
+    <%= turbo_frame_tag "productos-#{@pagy.page}",class: 'productos flex flex-col w-full sm:flex-row sm:flex-wrap sm:gap-x-2' do %>
       <%= render partial: 'producto', collection: @productos %>
-      <%= turbo_frame_tag "productos-#{@pagy.next}", class: "producto-container", src: pagy_url_for(@pagy, @pagy.next), loading: 'lazy' if @pagy.next %>
+      <%= turbo_frame_tag "productos-#{@pagy.next}", class: "productos flex flex-col w-full sm:flex-row sm:flex-wrap sm:gap-x-2", src: pagy_url_for(@pagy, @pagy.next), loading: 'lazy' if @pagy.next %>
     <% end %>
   <% end %>
 <% end %>

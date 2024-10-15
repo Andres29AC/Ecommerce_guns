@@ -6,3 +6,5 @@ class UsersController < ApplicationController
     #@pagy, @productos = pagy_countless(FindProducts.new.call({ user_id: @user.id }).load_async, items: 4)
   end
 end
+
+#Turbo + Stimulus = Hotwire

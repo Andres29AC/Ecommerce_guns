@@ -1,100 +1,38 @@
 <%= form_with model: @producto do |form|%>
-   <%# mostrando errores a los usuarioss en caso no se guarde un producto %>
+   <%# mostrando errores a los usuarios en caso no se guarde un producto %>
    <% @producto.errors.full_messages.each do |error| %>
       <div>
          <%= error %> 
       </div> 
    <% end %>
    <div class="form-group">
-      <%=form.label :title,class: 'control-label' %>
-      <%=form.text_field :titulo,class: 'form-control editar-titulo' %>
+      <%=form.label :title,class: 'font-bold mb-4'%>
+      <%=form.text_field :titulo,class: 'rounded-2xl border-gray-600 mb-4 w-full' %>
    </div>
-   <br> 
    <div class="form-group">
-      <%=form.label :description,class: 'control-label' %>
-      <%=form.text_area :descripcion,class: 'form-control editar-area' %>
+      <%=form.label :description,class: 'font-bold mb-4' %>
+      <%=form.text_area :descripcion,class: 'rounded-2xl border-gray-600 mb-4 w-full',rows: 5 %>
    </div>
-   <br> 
    <div class="form-group">
-      <%=form.label :price,class: 'control-label' %>
-      <%=form.number_field :precio,class: 'form-control editar-precio' %>
+      <%=form.label :price,class: 'font-bold mb-4' %>
+      <%=form.number_field :precio,class: 'rounded-2xl border-gray-600 mb-4 w-full' %>
    </div>
-   <br>
    <div>
-      <%= form.label :category_id %>
-      <%= form.collection_select :category_id, Category.all.order(name: :asc), :id,:name %>
+      <%= form.label :category_id,class: 'font-bold mb-4' %>
+      <div>
+         <%= form.collection_select :category_id, Category.all.order(name: :asc), :id,:name,{ class: "rounded-2xl border-gray-200 mb-4 w-full text-gray-500"} %>
+      </div>
    </div>
    <br>
-   <div class="form-group">
-      <%=form.label :photo%>
-      <%=form.file_field :photo%>
+   <div class="rounded-2xl border border-gray-500 mb-4 w-full p-4 text-gray-700 flex flex-col gap-2">
+      <%= form.label :photo, class: "font-semibold text-sm text-gray-600" %>
+      <%= form.file_field :photo, class: "file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 cursor-pointer text-gray-700 w-full" %>
    </div>
-   <br>
-   <%# <%=form.submit :id => 'saveButton'%>
-   <div class="form-group modificar-botton">
-      <%=form.submit%>
+
+   <div class="flex items-center justify-center">
+      <button class="bg-blue-500 hover:bg-blue-700 px-4 py-2 font-semibold text-sm bg-cyan-500 text-white rounded-2xl cursor-pointer shadow-sm">
+         <%=form.submit%>
+      </button>
    </div>
+
 <% end %>
-
-<script>
-  document.querySelector("form").addEventListener("submit", function(event){
-    event.preventDefault();
-    Swal.fire({
-      title: '¿Desea guardar el producto?',
-      text: "¡Asegúrese de llenar todos los campos!",
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Sí, guardar',
-      cancelButtonText: 'Cancelar'
-    }).then((result) => {
-      if (result.value) {
-        this.submit()
-        Swal.fire({
-          position: 'top-end',
-          icon: 'success',
-          title: 'Producto guardado con éxito',
-          showConfirmButton: false,
-          timer: 1500
-        });
-      }
-    })
-  });
-</script>
-<style>
-   .form-group{
-      align-content: center;
-   }
-   .control-label{
-      display: flex;
-      justify-content: center;
-
-   }
-   .form-control{
-      display: flex;
-      justify-content: center;
-      margin: 0 auto;
-      width: 50%;
-   }
-   .form-group.modificar-botton{
-      display: flex;
-      justify-content: center;
-   }
-   .form-group sumbit:hover{
-      background-color: #407198;
-      color: white;
-   }
-   .editar-precio{
-      width: 20%;
-   }
-   .editar-titulo{
-      width: 30%;
-   }
-   .editar-area{
-      height: 100px;
-      width: 30%;
-   }
-</style>
-
-

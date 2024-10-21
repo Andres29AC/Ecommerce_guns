@@ -96,3 +96,7 @@ es:
   favorites:
     index:
       title: 'Mis favoritos'
+  user_mailer:
+    welcome:
+      subject: 'Bienvenido a Hermanos de Armas'
+      welcome_message: 'Hey %{username}, bienvenid@ a Hermanos de Armas. Esperemos que vendas un monton!'

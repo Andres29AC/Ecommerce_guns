@@ -68,6 +68,7 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+  gem "letter_opener"
 end
 
 group :test do
@@ -79,3 +80,5 @@ end
 
 
 gem "tailwindcss-rails", "~> 2.7"
+
+gem "view_component", "~> 3.18"

@@ -96,3 +96,7 @@ en:
   favorites:
     index:
       title: 'My favorites'
+  user_mailer:
+    welcome:
+      subject: 'Welcome to Brothers in Arms'
+      welcome_message: 'Hey %{username}, welcome to Brothers in Arms. We hope you sell a lot'

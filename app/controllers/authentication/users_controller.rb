@@ -6,6 +6,8 @@ class Authentication::UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      #NOTE: Para enviar el email de manera asincrona
+      UserMailer.with(user: @user).welcome.deliver_later
       session[:user_id] = @user.id
       redirect_to productos_path, notice: t('.created')
     else

@@ -9,7 +9,7 @@ class User < ApplicationRecord
             format: { with: /\A[a-z0-9A-Z_]+\z/,
                       message: 'solo se permiten letras, números y guiones bajos'
                     }
-  validates :password, length: { minimum: 6 }
+  validates :password, length: { minimum: 6 }, if: :password_digest_changed?
   has_many :productos, dependent: :destroy
   has_many :favorites, dependent: :destroy
   before_save :downcase_attributes

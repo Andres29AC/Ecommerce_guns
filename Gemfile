@@ -82,3 +82,5 @@ end
 gem "tailwindcss-rails", "~> 2.7"
 
 gem "view_component", "~> 3.18"
+
+gem "sidekiq", "~> 7.3"

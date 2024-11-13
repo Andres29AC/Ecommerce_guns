@@ -1,9 +1,11 @@
-<%= @user.username %>
-
-<%#= turbo_frame_tag "productos-#{@pagy.page}", class: "producto-container" do %>
-  <%#= render partial: 'productos/producto', collection: @productos %>
-  <%#= turbo_frame_tag "productos-#{@pagy.next}", class: "producto-container", src: pagy_url_for(@pagy, @pagy.next), loading: 'lazy' if @pagy.next %>
-<%# end %>
-
+<div class="flex justify-center items-center space-x-2 mb-4">
+  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user">
+    <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>
+    <circle cx="12" cy="7" r="4"/>
+  </svg>
+  <h1 class="text-3xl font-semibold text-gray-900 shadow-lg p-4">
+    <%= @user.username %>
+  </h1>
+</div>
 
 <%= turbo_frame_tag :productos, src:productos_path(user_id: @user.id)  %>

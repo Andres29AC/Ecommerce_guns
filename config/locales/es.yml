@@ -69,7 +69,7 @@ es:
     show:
       edit: 'Editar producto'
       delete: 'Borrar producto'
-      view_more_products: 'Ver mas productos de %{username}'
+      view_more_products: 'Mas productos de %{username}'
     create:
       created: 'Tu producto se ha creado correctamente'
     update:

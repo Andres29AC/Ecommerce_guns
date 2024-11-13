@@ -1,3 +1,15 @@
-<h1><%= t('.title') %></h1>
+<h1 class="text-3xl font-bold text-center text-gray-900 mb-6"><%= t('.title') %></h1>
+
+<div class="flex justify-center mt-4">
+  <%= link_to new_category_path, class: "flex items-center justify-center text-blue-500 hover:text-blue-700 bg-blue-100 hover:bg-blue-200 py-2 px-4 rounded-lg shadow-md transition duration-300 mb-4" do %>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
+      <rect width="7" height="7" x="3" y="3" rx="1"/>
+      <rect width="7" height="7" x="14" y="3" rx="1"/>
+      <rect width="7" height="7" x="14" y="14" rx="1"/>
+      <rect width="7" height="7" x="3" y="14" rx="1"/>
+    </svg>
+    <%= t('.new') %>
+  <% end %>
+</div>
+
 <%= render partial: 'category', collection: @categories %>
-<%= link_to t('.new'), new_category_path %>

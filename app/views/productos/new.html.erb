@@ -1,10 +1,22 @@
 <%= turbo_frame_tag "modal" do %>
     <div data-controller="modal">
         <div data-action="click->modal#close" class="fixed z-10 w-full h-full top-0 left-0 bg-black bg-opacity-40"></div>
-        <div data-modal-target="sidebar" class="fixed top-0 right-0 z-20 w-1/2 sm:w-3/6 lg:w-2/6 h-full bg-white overflow-y-scroll shadow flex flex-col ease-in-out duration-300 p-5 translate-x-full">
+        <div data-modal-target="sidebar" class="fixed top-0 right-0 z-20 w-1/2 sm:w-3/6 lg:w-2/6 h-full bg-white overflow-y-scroll shadow-lg flex flex-col ease-in-out duration-300 p-5 translate-x-full">
             <p class="cursor-pointer mb-4" data-action="click->modal#close">❌</p>
-            <h2 class="text-xl font-bold mb-4 text-center"><%= t('.title') %></h2>
+            <div class="mb-4 p-4 bg-blue-50 rounded-xl shadow-md">
+                <div class="flex items-center justify-center space-x-2">
+                    <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z"/>
+                        <path d="M12 22V12"/>
+                        <path d="m3.3 7 7.703 4.734a2 2 0 0 0 1.994 0L20.7 7"/>
+                        <path d="m7.5 4.27 9 5.15"/>
+                    </svg>
+                    <h2 class="text-2xl font-bold text-blue-600">
+                        <%= t('.title') %>
+                    </h2>
+                </div>
+            </div>
             <%= render 'form' %>
         </div>
     </div>
-<% end  %>
+<% end %>

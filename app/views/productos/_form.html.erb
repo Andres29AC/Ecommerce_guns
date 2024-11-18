@@ -1,38 +1,59 @@
-<%= form_with model: @producto do |form|%>
-   <%# mostrando errores a los usuarios en caso no se guarde un producto %>
-   <% @producto.errors.full_messages.each do |error| %>
-      <div>
-         <%= error %> 
-      </div> 
-   <% end %>
-   <div class="form-group">
-      <%=form.label :title,class: 'font-bold mb-4'%>
-      <%=form.text_field :titulo,class: 'rounded-2xl border-gray-600 mb-4 w-full' %>
-   </div>
-   <div class="form-group">
-      <%=form.label :description,class: 'font-bold mb-4' %>
-      <%=form.text_area :descripcion,class: 'rounded-2xl border-gray-600 mb-4 w-full',rows: 5 %>
-   </div>
-   <div class="form-group">
-      <%=form.label :price,class: 'font-bold mb-4' %>
-      <%=form.number_field :precio,class: 'rounded-2xl border-gray-600 mb-4 w-full' %>
-   </div>
-   <div>
-      <%= form.label :category_id,class: 'font-bold mb-4' %>
-      <div>
-         <%= form.collection_select :category_id, Category.all.order(name: :asc), :id,:name,{ class: "rounded-2xl border-gray-200 mb-4 w-full text-gray-500"} %>
+<div class="max-w-md mx-auto bg-white p-6 rounded-lg shadow-lg">
+   <%# Alerta de errores %>
+   <% if @producto.errors.any? %>
+      <div class="mb-4 p-4 rounded-lg bg-red-100 text-red-600">
+         <h3 class="font-bold mb-2">Errores:</h3>
+         <ul class="list-disc ml-5">
+            <% @producto.errors.full_messages.each do |error| %>
+               <li><%= error %></li>
+            <% end %>
+         </ul>
       </div>
-   </div>
-   <br>
-   <div class="rounded-2xl border border-gray-500 mb-4 w-full p-4 text-gray-700 flex flex-col gap-2">
-      <%= form.label :photo, class: "font-semibold text-sm text-gray-600" %>
-      <%= form.file_field :photo, class: "file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 cursor-pointer text-gray-700 w-full" %>
-   </div>
+   <% end %>
 
-   <div class="flex items-center justify-center">
-      <button class="bg-blue-500 hover:bg-blue-700 px-4 py-2 font-semibold text-sm bg-cyan-500 text-white rounded-2xl cursor-pointer shadow-sm">
-         <%=form.submit%>
-      </button>
-   </div>
+   <%= form_with model: @producto, class: "space-y-6" do |form| %>
 
-<% end %>
+      <div class="form-group">
+         <%=form.label :title, class: 'block font-bold text-gray-700 mb-2'%>
+         <div class="relative">
+            <span class="absolute inset-y-0 left-0 flex items-center pl-3">
+               <i class="fas fa-tag text-gray-400"></i>
+            </span>
+            <%=form.text_field :titulo, class: 'rounded-2xl border-gray-300 mb-4 w-full pl-10 focus:ring-2 focus:ring-blue-500' %>
+         </div>
+      </div>
+
+      <div class="form-group">
+         <%=form.label :description, class: 'block font-bold text-gray-700 mb-2' %>
+         <%=form.text_area :descripcion, class: 'rounded-2xl border-gray-300 mb-4 w-full focus:ring-2 focus:ring-blue-500', rows: 5 %>
+      </div>
+
+      <div class="form-group">
+         <%=form.label :price, class: 'block font-bold text-gray-700 mb-2' %>
+         <div class="relative">
+            <span class="absolute inset-y-0 left-0 flex items-center pl-3">
+               <i class="fas fa-dollar-sign text-gray-400"></i>
+            </span>
+            <%=form.number_field :precio, class: 'rounded-2xl border-gray-300 mb-4 w-full pl-10 focus:ring-2 focus:ring-blue-500' %>
+         </div>
+      </div>
+
+      <div class="form-group">
+         <%= form.label :category_id, class: 'block font-bold text-gray-700 mb-2' %>
+         <%= form.collection_select :category_id, Category.all.order(name: :asc), :id, :name, {}, { class: "rounded-2xl border-gray-300 mb-4 w-full focus:ring-2 focus:ring-blue-500" } %>
+      </div>
+
+      <div class="form-group">
+         <%= form.label :photo, class: "block font-bold text-gray-700 mb-2" %>
+         <%= form.file_field :photo, class: "rounded-2xl border-gray-300 mb-4 w-full file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 cursor-pointer" %>
+      </div>
+
+      <div class="flex items-center justify-center">
+         <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-semibold rounded-2xl px-6 py-2 transition duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500 w-full flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-save"><path d="M15.2 3a2 2 0 0 1 1.4.6l3.8 3.8a2 2 0 0 1 .6 1.4V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/><path d="M17 21v-7a1 1 0 0 0-1-1H8a1 1 0 0 0-1 1v7"/><path d="M7 3v4a1 1 0 0 0 1 1h7"/></svg>
+            <span class="mx-1">Guardar Producto</span>
+         </button>
+      </div>
+
+   <% end %>
+</div>

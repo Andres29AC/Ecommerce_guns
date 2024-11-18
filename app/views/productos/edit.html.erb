@@ -1,20 +1,23 @@
-
-<h2 class="encabezado"><%= t('.title') %></h2>
-
+<div class="mb-4 mt-4 p-4 bg-blue-50 rounded-xl shadow-md w-full max-w-md mx-auto">
+  <div class="flex items-center justify-center space-x-2">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m10 10-6.157 6.162a2 2 0 0 0-.5.833l-1.322 4.36a.5.5 0 0 0 .622.624l4.358-1.323a2 2 0 0 0 .83-.5L14 13.982"/>
+      <path d="m12.829 7.172 4.359-4.346a1 1 0 1 1 3.986 3.986l-4.353 4.353"/>
+      <path d="m15 5 4 4"/>
+      <path d="m2 2 20 20"/>
+    </svg>
+    <h2 class="text-2xl font-bold text-blue-600">
+      <%= t('.title') %>
+    </h2>
+  </div>
+</div>
 
 <%= render 'form' %>
 
-<%# Estamos aplicando el principio DRY (Don’t Repeat Yourself) y %> 
+
+<%# Estamos aplicando el principio DRY (Don’t Repeat Yourself) y %>
 <%# reutilizando la vista form para crear y editar productos. %>
 <%# Esto hace que evitemos repetir código y que si en un futuro %>
 <%# queremos modificar el formulario, solo tendremos que hacerlo %>
 <%# en un solo lugar. %>
 
-<style>
-.encabezado{
-   margin: auto;
-   text-align: center;
-}
-
-
-</style>

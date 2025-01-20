@@ -11,3 +11,9 @@ Este proyecto tiene como objetivo practicar lo aprendido utilizando Ruby on Rail
 
     $ rails tailwindcss:watch
 
+## Para dar permisos:
+
+    $ whoami
+    $ icacls . /grant UserName:F /T
+
+
